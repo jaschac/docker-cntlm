@@ -1,0 +1,12 @@
+{
+  "author" : "Jascha Casadio",
+  "description": "A Docker image that deploys the cNTLM authentication proxy.",
+  "issues_url": "https://github.com/jaschac/docker-cntlm/issues",
+  "license": "Apache-2.0",
+  "name": "docker-cntlm",
+  "project_page": "https://hub.docker.com/r/jaschac/cntlm/",
+  "source": "https://github.com/jaschac/docker-cntlm",
+  "summary": "Deploys the cNTLM authentication proxy",
+  "tags":["authentication", "cntlm", "ntlm", "proxy"],
+  "version": "0.0.1"
+}
