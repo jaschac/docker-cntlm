@@ -21,8 +21,8 @@ then
 fi
 
 # Check if any of the password args was passed
-password=($CNTLM_PASSLM $CNTLM_PASSNT $CNTLM_PASSNTLMv2)
-if [ ${#password[@]} -eq 0 ]
+CNTLM_PASSWORDS=($CNTLM_PASSLM $CNTLM_PASSNT $CNTLM_PASSNTLMv2)
+if [ ${#CNTLM_PASSWORDS[@]} -eq 0 ]
 then
     echo "Either CNTLM_PASSLM or CNTLM_PASSNT or CNTLM_PASSNTLMv2 must be passed!" >> /dev/stderr
     exit 1
@@ -41,6 +41,14 @@ then
 fi
 
 # Build and install cntlm
+FLAG_GCC_INSTALLED=$(which gcc)
+FLAG_MAKE_INSTALLED=$(which make)
+if [[ -z FLAG_GCC_INSTALLED || -z FLAG_MAKE_INSTALLED ]]
+then
+    echo "Cannot find both make and gcc installed."
+    exit 1
+fi
+
 if [ -d /usr/local/src/cntlm-0.92.3/ ]
 then
     cd /usr/local/src/cntlm-0.92.3/

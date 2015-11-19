@@ -8,5 +8,5 @@
   "source": "https://github.com/jaschac/docker-cntlm",
   "summary": "Deploys the cNTLM authentication proxy",
   "tags":["authentication", "cntlm", "ntlm", "proxy"],
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
