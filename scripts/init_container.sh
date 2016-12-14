@@ -40,22 +40,5 @@ then
     sed -i 's/<CNTLM_USERNAME>/'${CNTLM_USERNAME}/g /etc/cntlm.conf
 fi
 
-# Build and install cntlm
-FLAG_GCC_INSTALLED=$(which gcc)
-FLAG_MAKE_INSTALLED=$(which make)
-if [[ -z FLAG_GCC_INSTALLED || -z FLAG_MAKE_INSTALLED ]]
-then
-    echo "Cannot find both make and gcc installed."
-    exit 1
-fi
-
-if [ -d /usr/local/src/cntlm-0.92.3/ ]
-then
-    cd /usr/local/src/cntlm-0.92.3/
-    ./configure
-    make
-    make install
-fi
-
 # Start cNTLM in foreground
 cntlm -f -g -c /etc/cntlm.conf
