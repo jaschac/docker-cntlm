@@ -12,6 +12,8 @@ set -e
 : ${CNTLM_PROXY_PORT:="3128"}
 : ${CNTLM_PROXY_URL:=""}
 : ${CNTLM_USERNAME:=""}
+: ${CNTLM_NOPROXY:="localhost, 127.0.0.*, 10.*, 192.168.*"}
+
 
 # Check if mandatory args were passed
 if [[ -z $CNTLM_USERNAME || -z $CNTLM_DOMAIN || -z $CNTLM_PROXY_URL ]]
@@ -38,6 +40,7 @@ then
     sed -i 's/<CNTLM_PROXY_PORT>/'${CNTLM_PROXY_PORT}/g /etc/cntlm.conf
     sed -i 's/<CNTLM_PROXY_URL>/'${CNTLM_PROXY_URL}/g /etc/cntlm.conf
     sed -i 's/<CNTLM_USERNAME>/'${CNTLM_USERNAME}/g /etc/cntlm.conf
+    sed -i 's/<CNTLM_NOPROXY>/'${CNTLM_NOPROXY}/g /etc/cntlm.conf
 fi
 
 # Build and install cntlm
