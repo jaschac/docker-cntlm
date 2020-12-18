@@ -161,6 +161,7 @@ At least one of the following parameters is mandatory. Please make sure you chec
  - **CNTLM_PASSLM**
  - **CNTLM_PASSNT**
  - **CNTLM_PASSNTLMv2**
+ 
 
 Note that in this case we are not passing the plain text password of the user, but its hash, which can be generated with the following command:
 ```bash
@@ -170,6 +171,7 @@ $ sudo cntlm -H
 The following parameters are optional. If not provided, they will be assigned default values:
 
  - **CNTLM_PROXY_PORT**: it defaults to 3128
+ - **CNTLM_NOPROXY**: it default to localhost, 127.0.0.*, 10.*, 192.168.*
 
 ```bash
 sudo docker run --name cntlm -e CNTLM_USERNAME=jascha -e CNTLM_DOMAIN=lostinmalloc -e CNTLM_PROXY_URL=proxy.lostinmalloc.com -e CNTLM_PROXY_PORT=3128 -e CNTLM_PASSNTLMv2=62229EA8B6C0EEC4D887AD048960CC01 -d jaschac/cntlm
